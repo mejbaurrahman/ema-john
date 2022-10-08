@@ -17,7 +17,7 @@ export default function Product({product, handleAddToCart}) {
         <h6>Rating: {ratings}</h6>
         </div>
         <div className=''>
-        <button onClick={()=>{handleAddToCart(id)}} className='bg-orange-400 px-4 py-2 w-full rounded'>Add to Cart</button>
+        <button onClick={()=>{handleAddToCart(product)}} className='bg-orange-400 px-4 py-2 w-full rounded'>Add to Cart</button>
         </div>
     </div>
   )

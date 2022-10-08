@@ -1,9 +1,9 @@
-const addToDb =(item)=>{
+const addToDb =(id)=>{
     const db = getDb();
-    if(item.id in db){
-        db[item.id] = db[item.id]+1;
+    if(id in db){
+        db[id] = db[id]+1;
     }else{
-        db[item.id]=1;
+        db[id]=1;
     }
     saveToDb(db);
 }
@@ -18,6 +18,10 @@ const removeFromDb =(item)=>{
     saveToDb(db);
 
 }
+
+const deleteDb =()=>{
+    localStorage.removeItem('shopping-cart');
+}
 const getDb =()=>{
     const savedDb = localStorage.getItem('shopping-cart');
     if(savedDb){
@@ -27,4 +31,4 @@ const getDb =()=>{
     }
 }
 
-export {addToDb, removeFromDb, getDb};
+export {addToDb, removeFromDb, getDb, deleteDb};
