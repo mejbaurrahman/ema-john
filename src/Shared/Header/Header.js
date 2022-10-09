@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.svg';
 
 export default function Header() {
@@ -12,11 +13,11 @@ export default function Header() {
         <div className=' w-1/2'>
             <nav>
                 <ul className='flex justify-between p-2 w-full'>
-                    <a href="#" className='no-underline'><li className= 'text-white p-2'>Home</li></a>
-                    <a href="#" className='no-underline'><li className= 'text-white p-2'>Shop</li></a>
-                    <a href="#" className='no-underline'><li className= 'text-white p-2'>Order</li></a>
-                    <a href="#" className='no-underline'><li className= 'text-white p-2'>Inventory</li></a>
-                    <a href="#" className='no-underline'><li className= 'text-white p-2'>Login</li></a>
+                    <Link to="/" className='no-underline'><li className= 'text-white p-2'>Home</li></Link>
+                    <Link to="/shop" className='no-underline'><li className= 'text-white p-2'>Shop</li></Link>
+                    <Link to="/orders" className='no-underline'><li className= 'text-white p-2'>Order</li></Link>
+                    <Link to="/inventory" className='no-underline'><li className= 'text-white p-2'>Inventory</li></Link>
+                    <Link to="/login" className='no-underline'><li className= 'text-white p-2'>Login</li></Link>
                 </ul>
             </nav>
         </div>
