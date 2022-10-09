@@ -6,7 +6,8 @@ import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import Orders from './Pages/Orders/Orders';
 import Shop from './Pages/Shop/Shop';
-import Header from './Shared/Header/Header';
+
+
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         },
         {
           path:'/orders',
+          loader: ProductAndCartLoader,
           element: <Orders></Orders>
         },
        
@@ -38,7 +40,8 @@ function App() {
     }
   ])
   return (
-    <RouterProvider router={router}></RouterProvider>
+    <RouterProvider router={router}>
+    </RouterProvider>
   );
 }
 
