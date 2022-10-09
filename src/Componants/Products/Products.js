@@ -1,32 +1,34 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import { addToDb, getDb } from '../Hook/FakeDb/FakeDb';
 import Product from '../Product/Product';
 
 export default function Products() {
 
-    const [products, setProducts] = useState([]);
-    const [order, setOrder] = useState([]);
+    // const [products, setProducts] = useState([]);
+    const {products, initialOrder} = useLoaderData();
+    const [order, setOrder] = useState(initialOrder);
 
-    useEffect(()=>{
-        fetch('https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json')
-        .then(res=>res.json())
-        .then(data=>setProducts(data));
-    }, [])
+    // useEffect(()=>{
+    //     fetch('https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json')
+    //     .then(res=>res.json())
+    //     .then(data=>setProducts(data));
+    // }, [])
 
-    useEffect(()=>{
-        const db = getDb();
-        const savedOrder = [];
-        for(let item in db){
-            const currentItem = products.find(product=> product.id === item);
-            if(currentItem){
-                const quantity = db[item];
-                currentItem.quantity= quantity;
-                savedOrder.push(currentItem);
-            } 
-        }
-        setOrder(savedOrder)
-    }, [products])
+    // useEffect(()=>{
+    //     const db = getDb();
+    //     const savedOrder = [];
+    //     for(let item in db){
+    //         const currentItem = products.find(product=> product.id === item);
+    //         if(currentItem){
+    //             const quantity = db[item];
+    //             currentItem.quantity= quantity;
+    //             savedOrder.push(currentItem);
+    //         } 
+    //     }
+    //     setOrder(savedOrder)
+    // }, [products])
 
     const handleAddToCart = (product)=>{
         // const clickedItem = products.find(product=>product.id === id);

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Main from './Componants/Layouts/Main/Main';
+import { ProductAndCartLoader } from './Loaders/ProductAndCartLoader';
 import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import Orders from './Pages/Orders/Orders';
@@ -21,6 +22,7 @@ function App() {
         },
         {
           path:'/shop',
+          loader: ProductAndCartLoader,
           element: <Shop></Shop>
         },
         {
